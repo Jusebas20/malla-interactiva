@@ -133,7 +133,7 @@ pensum.forEach(sem => {
   semesterWrapper.className = "semester-wrapper";
 
   const title = document.createElement("h2");
-  title.textContent = `Semestre ${sem.semestre}`;
+  title.textContent = Semestre ${sem.semestre};
   semesterWrapper.appendChild(title);
 
   const semesterDiv = document.createElement("div");
@@ -142,13 +142,13 @@ pensum.forEach(sem => {
   sem.asignaturas.forEach(asig => {
     const subjectDiv = document.createElement("div");
     subjectDiv.className = "subject";
-    subjectDiv.innerHTML = `
+    subjectDiv.innerHTML = 
       <strong>${asig.codigo}</strong><br>
       ${asig.nombre}<br>
       <span>${asig.creditos} créditos</span>
-    `;
+    ;
     subjectDiv.title = asig.prerrequisitos
-      ? `Prerrequisitos: ${asig.prerrequisitos}`
+      ? Prerrequisitos: ${asig.prerrequisitos}
       : "Sin prerrequisitos";
     semesterDiv.appendChild(subjectDiv);
   });
@@ -163,61 +163,3 @@ document.addEventListener("click", function (e) {
     e.target.closest(".subject").classList.toggle("completed");
   }
 });
-
-// Modal de tareas
-const modal = document.getElementById("taskModal");
-const closeModalBtn = document.querySelector(".close-button");
-const taskInput = document.getElementById("taskInput");
-const dateInput = document.getElementById("dateInput");
-const saveTaskBtn = document.getElementById("saveTask");
-const taskList = document.getElementById("taskList");
-const modalTitle = document.getElementById("modal-title");
-
-let currentSubject = null;
-
-// Doble clic abre el modal de tareas
-document.addEventListener("dblclick", (e) => {
-  const subjectEl = e.target.closest(".subject");
-  if (!subjectEl) return;
-
-  currentSubject = subjectEl.querySelector("strong").textContent;
-  modalTitle.textContent = `Tareas - ${currentSubject}`;
-  taskInput.value = "";
-  dateInput.value = "";
-  showTasks();
-  modal.style.display = "block";
-});
-
-closeModalBtn.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (event) => {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-};
-
-saveTaskBtn.onclick = () => {
-  if (!currentSubject) return;
-
-  const tasks = JSON.parse(localStorage.getItem(currentSubject)) || [];
-  tasks.push({
-    descripcion: taskInput.value,
-    fecha: dateInput.value
-  });
-  localStorage.setItem(currentSubject, JSON.stringify(tasks));
-  showTasks();
-  taskInput.value = "";
-  dateInput.value = "";
-};
-
-function showTasks() {
-  taskList.innerHTML = "";
-  const tasks = JSON.parse(localStorage.getItem(currentSubject)) || [];
-  tasks.forEach(task => {
-    const li = document.createElement("li");
-    li.textContent = `${task.descripcion} (📅 ${task.fecha})`;
-    taskList.appendChild(li);
-  });
-}
