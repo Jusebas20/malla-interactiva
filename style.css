@@ -1,124 +1,96 @@
-/* Estilo general */
+/* Fondo general */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
   margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.semester-wrapper {
-  margin-bottom: 40px;
-  padding: 15px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-h2 {
-  margin-bottom: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  background-image: url('https://i.pinimg.com/originals/99/12/02/991202156833c55645a03f05850c16c5.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   color: #333;
-  border-left: 4px solid #ff69b4;
-  padding-left: 10px;
 }
 
+/* Contenedor general de los semestres */
+#grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Cada grupo por semestre */
+.semester-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Título de semestre */
+.semester-wrapper h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: #444;
+  border-bottom: 2px solid #ffc0cb;
+  padding-bottom: 0.5rem;
+}
+
+/* Contenedor de materias */
 .semester {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
+/* Recuadro de materia */
 .subject {
-  background-color: #f9f9f9;
-  border-left: 4px solid #ccc;
-  padding: 15px;
+  background-color: #ffc0cb;
   border-radius: 8px;
-  transition: 0.3s;
+  padding: 1rem;
+  width: 180px;
+  min-height: 100px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background-color 0.3s;
   cursor: pointer;
-}
-
-.subject:hover {
-  background-color: #ffeaf4;
-  border-left-color: #ff69b4;
-}
-
-.subject.completed {
-  background-color: #ffcccc;
-  color: #900;
-  text-decoration: line-through;
-}
-
-/* Modal de tareas */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 500px;
-  box-shadow: 0 0 10px #888;
-}
-
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.close-button:hover {
   color: #000;
 }
 
-#taskInput, #dateInput {
+/* Hover de materia */
+.subject:hover {
+  transform: scale(1.05);
+}
+
+/* Loader animado */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
 }
 
-#saveTask {
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  margin-top: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Flor animada */
+#loader img {
+  width: 100px;
+  animation: spin 2s linear infinite;
 }
 
-#saveTask:hover {
-  background-color: #e0579a;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-#taskList {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
+/* Materia marcada como completada */
+.subject.completed {
+  background-color: #ffcccc !important;
+  text-decoration: line-through;
+  color: #a00000;
 }
 
-#taskList li {
-  margin: 6px 0;
-  background: #ffeaf4;
-  padding: 10px;
-  border-radius: 6px;
-}
