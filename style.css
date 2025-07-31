@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://i.imgur.com/pDp6Aw9.jpg'); /* Imagen floral */
+  background-image: url('https://i.imgur.com/pDp6Aw9.jpg'); /* fondo floral */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -7,10 +7,15 @@ body {
   text-align: center;
   margin: 0;
   padding: 20px;
+  color: #000;
 }
 
 h1 {
   margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
 #grid-container {
@@ -28,64 +33,23 @@ h1 {
 }
 
 .subject {
-  background-color: #ffffff;
-  border: 2px solid #004d99;
+  background-color: #ff69b4; /* rosa */
+  color: #000000; /* texto negro */
+  border: 2px solid #cc3366;
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
   transition: 0.3s;
+  font-weight: bold;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .subject:hover {
-  background-color: #cce6ff;
+  background-color: #ff85c1; /* rosa más claro */
 }
 
 .subject span {
   display: block;
   font-size: 0.9em;
-  color: #555;
-}
-body {
-  background-color: #f0f0f0;
-  font-family: sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  margin-bottom: 30px;
-}
-
-#grid-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-
-.semester {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-  max-width: 90%;
-}
-
-.subject {
-  background-color: #ffffff;
-  border: 2px solid #004d99;
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.subject:hover {
-  background-color: #cce6ff;
-}
-
-.subject span {
-  display: block;
-  font-size: 0.9em;
-  color: #555;
+  color: #222;
 }
