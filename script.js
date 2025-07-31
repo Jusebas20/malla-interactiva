@@ -161,8 +161,10 @@ pensum.forEach(sem => {
 document.addEventListener("click", function (e) {
   if (e.target.closest(".subject")) {
     e.target.closest(".subject").classList.toggle("completed");
+  }
+});
 
-    // Modal de tareas
+// Modal de tareas
 const modal = document.getElementById("taskModal");
 const closeModalBtn = document.querySelector(".close-button");
 const taskInput = document.getElementById("taskInput");
@@ -173,15 +175,17 @@ const modalTitle = document.getElementById("modal-title");
 
 let currentSubject = null;
 
-document.querySelectorAll(".subject").forEach(subject => {
-  subject.addEventListener("dblclick", () => {
-    currentSubject = subject.querySelector("strong").textContent;
-    modalTitle.textContent = `Tareas - ${currentSubject}`;
-    taskInput.value = "";
-    dateInput.value = "";
-    showTasks();
-    modal.style.display = "block";
-  });
+// Doble clic abre el modal de tareas
+document.addEventListener("dblclick", (e) => {
+  const subjectEl = e.target.closest(".subject");
+  if (!subjectEl) return;
+
+  currentSubject = subjectEl.querySelector("strong").textContent;
+  modalTitle.textContent = `Tareas - ${currentSubject}`;
+  taskInput.value = "";
+  dateInput.value = "";
+  showTasks();
+  modal.style.display = "block";
 });
 
 closeModalBtn.onclick = () => {
