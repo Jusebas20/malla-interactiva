@@ -2,21 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva - Medicina Veterinaria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Interactiva</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Loader animado con flor -->
-  <div id="loader">
-    <img src="https://i.pinimg.com/originals/f1/b8/37/f1b8371044025cc40121a52c003b66db.png" alt="Cargando...">
+  <!-- Loader animado (si lo usas) -->
+  <div id="loader">Cargando...</div>
+
+  <h1>Malla Curricular Interactiva</h1>
+  <div id="grid-container"></div>
+
+  <!-- Modal para tareas -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modal-title">Tareas</h2>
+      <input type="text" id="taskInput" placeholder="Descripción de la tarea">
+      <input type="date" id="dateInput">
+      <button id="saveTask">Guardar tarea</button>
+      <ul id="taskList"></ul>
+    </div>
   </div>
 
-  <!-- Contenedor principal de la malla -->
-  <main id="grid-container"></main>
-
-  <!-- Script con lógica de renderizado y comportamiento -->
+  <!-- Script principal -->
   <script src="script.js"></script>
 </body>
 </html>
