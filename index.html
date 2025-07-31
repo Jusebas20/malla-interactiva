@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva - Medicina Veterinaria</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- Loader animado con flor -->
-  <div id="loader">
-    <img src="https://i.pinimg.com/originals/f1/b8/37/f1b8371044025cc40121a52c003b66db.png" alt="Cargando...">
+<!-- Modal para tareas -->
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h3 id="modal-title">Tareas</h3>
+    <input type="text" id="taskInput" placeholder="Descripción de la tarea">
+    <input type="date" id="dateInput">
+    <button id="saveTask">Guardar tarea</button>
+    <ul id="taskList"></ul>
   </div>
-
-  <!-- Contenedor principal de la malla -->
-  <main id="grid-container"></main>
-
-  <!-- Script con lógica de renderizado y comportamiento -->
-  <script src="script.js"></script>
-</body>
-</html>
+</div>
