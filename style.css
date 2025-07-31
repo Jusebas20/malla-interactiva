@@ -1,48 +1,124 @@
+/* Estilo general */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.semester-wrapper {
+  margin-bottom: 40px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #333;
+  border-left: 4px solid #ff69b4;
+  padding-left: 10px;
+}
+
+.semester {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.subject {
+  background-color: #f9f9f9;
+  border-left: 4px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.subject:hover {
+  background-color: #ffeaf4;
+  border-left-color: #ff69b4;
+}
+
+.subject.completed {
+  background-color: #ffcccc;
+  color: #900;
+  text-decoration: line-through;
+}
+
+/* Modal de tareas */
 .modal {
   display: none;
   position: fixed;
-  z-index: 9999;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-  background-color: #fff0f5;
+  background-color: #fff;
   margin: 10% auto;
   padding: 20px;
-  border: 2px solid pink;
-  width: 300px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.modal-content input, .modal-content button {
-  width: 100%;
-  padding: 8px;
-  margin: 5px 0;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 0 10px #888;
 }
 
 .close-button {
+  color: #aaa;
   float: right;
-  font-size: 20px;
+  font-size: 28px;
   cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+#taskInput, #dateInput {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#saveTask {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#saveTask:hover {
+  background-color: #e0579a;
 }
 
 #taskList {
   list-style: none;
-  padding-left: 0;
-  margin-top: 10px;
+  padding: 0;
+  margin-top: 15px;
 }
 
 #taskList li {
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #ddd;
-  margin-bottom: 5px;
-  font-size: 14px;
-  border-radius: 5px;
+  margin: 6px 0;
+  background: #ffeaf4;
+  padding: 10px;
+  border-radius: 6px;
 }
