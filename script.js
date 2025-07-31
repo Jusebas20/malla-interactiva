@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
   setTimeout(() => loader.style.display = 'none', 500);
 });
 
+// Bloque de datos (resumido aquí para espacio)
 const pensum = [
   {
     semestre: 1,
@@ -124,9 +125,17 @@ const pensum = [
   }
 ];
 
+// Renderizado con títulos y separación por semestre
 const gridContainer = document.getElementById("grid-container");
 
 pensum.forEach(sem => {
+  const semesterWrapper = document.createElement("div");
+  semesterWrapper.className = "semester-wrapper";
+
+  const title = document.createElement("h2");
+  title.textContent = `Semestre ${sem.semestre}`;
+  semesterWrapper.appendChild(title);
+
   const semesterDiv = document.createElement("div");
   semesterDiv.className = "semester";
 
@@ -144,5 +153,6 @@ pensum.forEach(sem => {
     semesterDiv.appendChild(subjectDiv);
   });
 
-  gridContainer.appendChild(semesterDiv);
+  semesterWrapper.appendChild(semesterDiv);
+  gridContainer.appendChild(semesterWrapper);
 });
