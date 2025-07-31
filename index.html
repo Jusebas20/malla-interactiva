@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla Interactiva</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Interactiva - Ciencias Agrarias / Veterinaria</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Loader de carga -->
+  <!-- Loader animado -->
   <div id="loader">
-    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Flor animada">
+    <img src="https://i.pinimg.com/originals/f1/b8/37/f1b8371044025cc40121a52c003b66db.png" alt="Cargando...">
   </div>
 
-  <!-- Contenedor de materias por semestre -->
+  <h1>Malla Curricular Interactiva</h1>
   <div id="grid-container"></div>
 
   <!-- Modal para tareas -->
@@ -20,14 +20,14 @@
     <div class="modal-content">
       <span class="close-button">&times;</span>
       <h2 id="modal-title">Tareas</h2>
-      <input type="text" id="taskInput" placeholder="Descripción de la tarea">
-      <input type="date" id="dateInput">
+      <input type="text" id="taskInput" placeholder="Descripción de la tarea" />
+      <input type="date" id="dateInput" />
       <button id="saveTask">Guardar tarea</button>
       <ul id="taskList"></ul>
     </div>
   </div>
 
-  <!-- Script principal -->
+  <!-- Script principal con funciones de malla y tareas -->
   <script src="script.js"></script>
 </body>
 </html>
