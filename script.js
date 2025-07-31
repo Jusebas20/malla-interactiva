@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   setTimeout(() => loader.style.display = 'none', 500);
 });
 
-// Bloque de datos (resumido aquí para espacio)
+// Bloque de datos del pensum (10 semestres)
 const pensum = [
   {
     semestre: 1,
@@ -155,4 +155,11 @@ pensum.forEach(sem => {
 
   semesterWrapper.appendChild(semesterDiv);
   gridContainer.appendChild(semesterWrapper);
+});
+
+// Funcionalidad: marcar o desmarcar materias al hacer clic
+document.addEventListener("click", function (e) {
+  if (e.target.closest(".subject")) {
+    e.target.closest(".subject").classList.toggle("completed");
+  }
 });
