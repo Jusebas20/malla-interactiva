@@ -161,5 +161,59 @@ pensum.forEach(sem => {
 document.addEventListener("click", function (e) {
   if (e.target.closest(".subject")) {
     e.target.closest(".subject").classList.toggle("completed");
-  }
+
+    // Modal de tareas
+const modal = document.getElementById("taskModal");
+const closeModalBtn = document.querySelector(".close-button");
+const taskInput = document.getElementById("taskInput");
+const dateInput = document.getElementById("dateInput");
+const saveTaskBtn = document.getElementById("saveTask");
+const taskList = document.getElementById("taskList");
+const modalTitle = document.getElementById("modal-title");
+
+let currentSubject = null;
+
+document.querySelectorAll(".subject").forEach(subject => {
+  subject.addEventListener("dblclick", () => {
+    currentSubject = subject.querySelector("strong").textContent;
+    modalTitle.textContent = `Tareas - ${currentSubject}`;
+    taskInput.value = "";
+    dateInput.value = "";
+    showTasks();
+    modal.style.display = "block";
+  });
 });
+
+closeModalBtn.onclick = () => {
+  modal.style.display = "none";
+};
+
+window.onclick = (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+saveTaskBtn.onclick = () => {
+  if (!currentSubject) return;
+
+  const tasks = JSON.parse(localStorage.getItem(currentSubject)) || [];
+  tasks.push({
+    descripcion: taskInput.value,
+    fecha: dateInput.value
+  });
+  localStorage.setItem(currentSubject, JSON.stringify(tasks));
+  showTasks();
+  taskInput.value = "";
+  dateInput.value = "";
+};
+
+function showTasks() {
+  taskList.innerHTML = "";
+  const tasks = JSON.parse(localStorage.getItem(currentSubject)) || [];
+  tasks.forEach(task => {
+    const li = document.createElement("li");
+    li.textContent = `${task.descripcion} (📅 ${task.fecha})`;
+    taskList.appendChild(li);
+  });
+}
